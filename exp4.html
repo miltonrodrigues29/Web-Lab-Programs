@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Program to find leftmost vowel and reverse of a number</title>
+        <script>
+           function validate()
+           {
+               var inp=document.getElementById('val').value;
+               if(isNaN(inp))
+               {
+                   findVowels(inp);
+               }
+               else
+               {
+                   findReverse(inp);
+               }
+           }
+           function findReverse(inp)
+               {
+                   var num=parseInt(inp);
+                   var rev=0,rem=0,temp;
+                   temp=num;
+                   while(num!=0)
+                   {
+                       rem=num%10;
+                       rev=rev*10+rem;
+                       num=parseInt(num/10);
+                   }
+                   alert("Reverse of a number "+temp+" is: "+rev);
+               }
+           
+               function findVowels(inp)
+               {   
+                   var str= inp.toLowerCase();
+                   var pos=0;
+                   var ch;
+                   for(var i=0;i<str.length;i++)
+                   {
+                       ch=str.charAt(i);
+                       if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')
+                       {
+                           pos=i+1;
+                           break;
+                       }
+                   }
+                   if(pos==0)
+                   {
+                       alert("Vowel not found");
+                   }
+                   else
+                   {
+                       alert("Position of a left most element in a string is "+pos);
+                   }
+               }
+           
+
+        </script>
+
+    </head>
+    <body>
+        <h1>Progarm to find the leftmost vowel and reverse of a number</h1>
+        <input type="text" name="val" id="val" placeholder="Enter String or digits">
+        <input type="button" value="submit" onclick="validate()">
+    </body>
+</html>
